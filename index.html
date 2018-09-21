@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Сортировка</title>
+</head>
+<body>
+    <h3>Введите 10 чисел через запятую и нажмите Enter для сортировки:</h3>
+    <input id="numbers" type="text" style="width: 300px">
+    <h3>Результат:</h3>
+    <b id="result"></b>
+
+    <script type="text/javascript">
+        document.onkeyup = function (e) {
+            e = e || window.event;
+            if (e.keyCode === 13) {
+                var n = document.getElementById("numbers").value;
+                var m = n.split(",");
+                for (var i = 0; i < 9; i++) {
+                    var m_min = Number(m[i]);
+                    for (var j = i + 1; j < 10; j++) {
+                        if (m[j] < m_min) {
+                            var mm = Number(m[i]);
+                            m_min = Number(m[j]);
+                            m[i] = m_min;
+                            m[j] = mm;
+                        }
+                    }
+                }
+                document.getElementById("result").innerHTML = m;
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
